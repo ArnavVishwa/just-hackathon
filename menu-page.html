@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew Heaven Menu</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#2d2d2d;
+padding:30px;
+}
+
+.container{
+
+max-width:1300px;
+margin:auto;
+
+padding:20px 40px 50px;
+
+background:
+linear-gradient(
+90deg,
+#080604 0%,
+#130904 35%,
+#2d1406 70%,
+#0c0705 100%
+);
+
+border:1px solid rgba(255,255,255,.08);
+}
+
+/* NAVBAR */
+
+.navbar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+padding-bottom:15px;
+}
+
+.logo{
+
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+
+width:34px;
+height:34px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.logo h2{
+
+color:#f4e7dc;
+font-size:28px;
+font-family:'Playfair Display',serif;
+font-weight:500;
+}
+
+.nav-links{
+
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+.nav-links a{
+
+text-decoration:none;
+color:#f1e7dc;
+font-size:14px;
+letter-spacing:1px;
+}
+
+.nav-icons{
+
+display:flex;
+gap:25px;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+/* TITLE */
+
+.title-section{
+
+text-align:center;
+margin-top:25px;
+}
+
+.title-section h1{
+
+font-family:'Playfair Display',serif;
+font-size:60px;
+font-weight:500;
+color:#f6e7dc;
+}
+
+.title-section p{
+
+color:#c7b5a9;
+margin-top:8px;
+}
+
+/* FILTER */
+
+.filters{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+
+margin:35px 0;
+}
+
+.filters button{
+
+background:transparent;
+border:1px solid #5b4131;
+
+color:white;
+
+padding:10px 35px;
+
+cursor:pointer;
+border-radius:4px;
+}
+
+.filters .active{
+
+background:#f0e6e4;
+color:black;
+border:none;
+}
+
+/* GRID */
+
+.menu-grid{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+max-width:900px;
+margin:auto;
+}
+
+/* CARD */
+
+.card{
+
+background:#f0e5e5;
+
+border-radius:14px;
+
+padding:18px;
+
+text-align:center;
+
+transition:.3s;
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+}
+
+.card img{
+
+width:100px;
+height:100px;
+object-fit:contain;
+}
+
+.card h3{
+
+margin-top:10px;
+font-size:22px;
+font-weight:500;
+}
+
+.card p{
+
+font-size:13px;
+color:#666;
+margin-top:5px;
+}
+
+.card span{
+
+display:block;
+
+margin-top:10px;
+
+font-weight:600;
+font-size:22px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+.menu-grid{
+grid-template-columns:repeat(3,1fr);
+}
+}
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:20px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.title-section h1{
+font-size:42px;
+}
+
+.menu-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:500px){
+
+body{
+padding:10px;
+}
+
+.container{
+padding:20px;
+}
+
+.menu-grid{
+grid-template-columns:1fr;
+}
+
+.filters button{
+width:100%;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <img src="images/logo.png" alt="">
+            <h2>Brew Heaven</h2>
+
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">MENU</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-comment-dots"></i>
+            <i class="fas fa-bookmark"></i>
+        </div>
+
+    </nav>
+
+    <!-- TITLE -->
+
+    <section class="title-section">
+
+        <h1>Our Menu</h1>
+        <p>Discover your perfect coffee</p>
+
+    </section>
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <button class="active">All</button>
+        <button>Espresso</button>
+        <button>Cappuccino</button>
+        <button>Latte</button>
+        <button>Mocha</button>
+        <button>Cold Brew</button>
+
+    </div>
+
+    <!-- MENU GRID -->
+
+    <div class="menu-grid">
+
+        <div class="card">
+            <img src="/just-hackathon/Rectangle 2.png" alt="">
+            <h3>Espresso</h3>
+            <p>Rich and bold shot</p>
+            <span>₹120</span>
+        </div>
+
+        <div class="card">
+            <img src="/just-hackathon/coffee.png">
+            <h3>Cappuccino</h3>
+            <p>Smooth and creamy</p>
+            <span>₹150</span>
+        </div>
+
+        <div class="card">
+            <img src="/just-hackathon/Gemini_Generated_Image_dsotnudsotnudsot (1).png">
+            <h3>Caramel Latte</h3>
+            <p>Sweet caramel flavor</p>
+            <span>₹150</span>
+        </div>
+
+        <div class="card">
+            <img src="/just-hackathon/Gemini_Generated_Image_mgoal6mgoal6mgoa.png">
+            <h3>Mocha</h3>
+            <p>Chocolaty delight</p>
+            <span>₹180</span>
+        </div>
+
+        <div class="card">
+            <img src="/just-hackathon/Gemini_Generated_Image_t7r0m8t7r0m8t7r0.png">
+            <h3>Cold Brew</h3>
+            <p>Chilled and refreshing</p>
+            <span>₹150</span>
+        </div>
+
+        <div class="card">
+            <img src="/just-hackathon/Gemini_Generated_Image_z7i77zz7i77zz7i7.png">
+            <h3>Vanilla Latte</h3>
+            <p>Smooth vanilla twist</p>
+            <span>₹170</span>
+        </div>
+
+        <div class="card">
+            <img src="/just-hackathon/ChatGPT Image Oct 4, 2026, 05_43_53 PM.png">
+            <h3>Hazelnut Coffee</h3>
+            <p>Nutty and aromatic</p>
+            <span>₹170</span>
+        </div>
+
+        <div class="card">
+            <img src="/just-hackathon/ChatGPT Image Oct 4, 2026, 05_47_13 PM.png">
+            <h3>Affogato</h3>
+            <p>Espresso with ice cream</p>
+            <span>₹160</span>
+            
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
