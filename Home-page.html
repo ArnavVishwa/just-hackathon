@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew Heaven</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #170e0a;
+            background-image: radial-gradient(circle at 75% 55%, #382417 0%, #170e0a 55%);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* ----- Header & Nav ----- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 8%;
+            width: 100%;
+        }
+
+        .logo-container {
+            flex: 1;
+        }
+
+        .logo {
+            font-family: 'Merriweather', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #d8cec3;
+            text-decoration: none;
+        }
+
+        nav {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #b8aaa0;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ecd2b9;
+        }
+
+        .header-icons {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            gap: 25px;
+        }
+
+        .header-icons span {
+            color: #b8aaa0;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .header-icons span:hover {
+            color: #ecd2b9;
+        }
+
+        /* ----- Hero Section ----- */
+        .hero {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 8% 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 50%;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 72px;
+            line-height: 1.15;
+            font-weight: 700;
+            color: #ecd2b9;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            font-family: 'Merriweather', serif;
+            font-size: 20px;
+            line-height: 1.5;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 40px;
+            max-width: 400px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            font-family: 'Merriweather', serif;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #8b4923;
+            color: #ffffff;
+            border: 2px solid #8b4923;
+        }
+
+        .btn-primary:hover {
+            background-color: #733c1d;
+            border-color: #733c1d;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+        }
+
+        .hero-image {
+            max-width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-placeholder {
+            width: 500px;
+            height: 400px;
+            background-color: rgba(255,255,255,0.05);
+            border: 2px dashed rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba(255,255,255,0.3);
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        img[alt]:after {
+            content: "Coffee Image Placeholder";
+            display: block;
+            width: 400px;
+            height: 300px;
+            background-color: rgba(255,255,255,0.05);
+            border: 2px dashed rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ----- Features Section ----- */
+        .features {
+            background-color: #aa8166;
+            margin: 0 8% 40px;
+            border-radius: 25px;
+            padding: 40px 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        .feature-icon {
+            width: 65px;
+            height: 65px;
+            background-color: #e5d8d0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon span {
+            font-size: 24px;
+            color: #1a100b;
+        }
+
+        .feature-item h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 18px;
+            font-weight: 900;
+            color: #1a100b;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #dfd5ce;
+            font-weight: 500;
+        }
+
+        /* ----- Responsive Design ----- */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 60px;
+            }
+            nav {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            header {
+                flex-wrap: wrap;
+                padding: 20px 5%;
+            }
+            .logo-container {
+                flex: unset;
+                width: 50%;
+            }
+            .header-icons {
+                flex: unset;
+                width: 50%;
+            }
+            nav {
+                order: 3;
+                width: 100%;
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 5%;
+            }
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 60px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-image {
+                max-width: 80%;
+            }
+            .hero-image img {
+                transform: none;
+                max-width: 100%;
+            }
+            
+            .features {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+            .feature-item {
+                min-width: 40%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+            .features {
+                margin: 0 5% 40px;
+            }
+            .feature-item {
+                min-width: 100%;
+            }
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <a href="#" class="logo">Brew Heaven</a>
+        </div>
+        
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </nav>
+        
+        <div class="header-icons">
+            <span title="Search">&#128269;</span>
+            <span title="User">&#128100;</span>
+            <span title="Cart">&#128717;</span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="hero">
+        <div class="hero-content">
+            <h1>Good Coffee<br>Create Day</h1>
+            <p>Handcrafted with love, brewed<br>for your perfect moment.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Explore Menu</a>
+                <a href="#" class="btn btn-secondary">Our Story</a>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <img src="/Coffee(1) (1).png" alt="Cup of coffee with latte art" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="image-placeholder" style="display: none;">
+                [ Coffee Image Placeholder ]<br><br>Please place 'coffee.png' in this directory.
+            </div>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-item">
+            <div class="feature-icon">
+                <span>&#128081;</span>
+            </div>
+            <h3>Premium Beams</h3>
+            <p>Sourced from the<br>best farms</p>
+        </div>
+        
+        <div class="feature-item">
+            <div class="feature-icon">
+                <span>&#127793;</span>
+            </div>
+            <h3>Freshly Roasted</h3>
+            <p>Small Batch roasting<br>every week</p>
+        </div>
+        
+        <div class="feature-item">
+            <div class="feature-icon">
+                <span>&#128666;</span>
+            </div>
+            <h3>Fast Delivery</h3>
+            <p>Quick and safe<br>delivery</p>
+        </div>
+        
+        <div class="feature-item">
+            <div class="feature-icon">
+                <span>&#127811;</span>
+            </div>
+            <h3>Eco Friendly</h3>
+            <p>Sustainable<br>and ethical</p>
+        </div>
+    </section>
+
+</body>
+</html>
